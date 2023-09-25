@@ -1,0 +1,22 @@
+{
+  "name": "preact-starter",
+  "version": "1.0.0",
+  "repository": "git@github.com:alfed7/preact-starter.git",
+  "author": "Alexander Fedorenko",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:web",
+    "dev:web": "yarn workspace @preact-starter/web dev",
+    "build": "npm-run-all build:web",
+    "build:web": "yarn workspace @preact-starter/web build",
+    "preview": "npm-run-all build preview:web",
+    "preview:web": "yarn workspace @preact-starter/web preview"
+  },
+  "devDependencies": {
+    "yarn-run-all": "^3.1.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
