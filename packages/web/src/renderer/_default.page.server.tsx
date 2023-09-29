@@ -1,17 +1,18 @@
 import renderToString from 'preact-render-to-string'
-import { PageShell } from './PageShell'
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
-import logoUrl from './logo.svg'
+import logoUrl from '#/assets/logo.svg'
+import type { PageContext } from 'vike/types'
+import { PageShell } from './PageShell'
 
 export { render }
 // See https://vike.dev/data-fetching
 export const passToClient = ['pageProps', 'urlPathname']
 
-async function render(pageContext: any) {
+async function render(pageContext: PageContext) {
   const { Page, pageProps } = pageContext
   const pageHtml = renderToString(
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+        <Page {...pageProps} />
     </PageShell>
   )
 

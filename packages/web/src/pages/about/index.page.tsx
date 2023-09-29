@@ -1,6 +1,7 @@
 import './code.css'
 
 export { Page }
+export { LandingLayout as Layout } from '#/layouts/LandingLayout'
 
 function Page() {
   return (

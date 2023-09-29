@@ -1,7 +1,7 @@
 // `usePageContext` allows us to access `pageContext` in any React component.
 // More infos: https://vike.dev/pageContext-anywhere
 
-import { Children } from '@/types'
+import { Children } from '#/types'
 import { createContext } from 'preact'
 import { useContext } from 'preact/hooks'
 

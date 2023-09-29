@@ -1,36 +1,34 @@
-import logo from './logo.svg'
-import { PageContextProvider } from './usePageContext'
-import './PageShell.css'
-import { Link } from './Link'
-import { Children } from '@/types'
+import logo from '#/assets/logo.svg'
+import './DefaultLayout.css'
+import { ActiveLink } from '#/components/ActiveLink'
+import { Children } from '#/types'
+import { PageContext } from 'vike/types'
 
-export { PageShell }
+export { DefaultLayout }
 
-export interface IPageShellProps {
-  pageContext?: any,
+export interface IDefaultLayoutProps {
+  pageContext?: PageContext,
   children?: Children
 }
 
-const PageShell = function ({ children, pageContext }: IPageShellProps) {
+const DefaultLayout = ({ children }: IDefaultLayoutProps) => {
   return (
-    <PageContextProvider pageContext={pageContext}>
       <Layout>
         <Sidebar>
           <Logo />
-          <Link className="navitem" href="/">
+          <ActiveLink className="navitem" href="/">
             Home
-          </Link>
-          <Link className="navitem" href="/about">
+          </ActiveLink>
+          <ActiveLink className="navitem" href="/about">
             About
-          </Link>
+          </ActiveLink>
         </Sidebar>
         <Content>{children}</Content>
       </Layout>
-    </PageContextProvider>
   )
 }
 
-const Layout = function ({ children }: IPageShellProps) {
+const Layout = function ({ children }: IDefaultLayoutProps) {
   return (
     <div
       style={{
@@ -44,7 +42,7 @@ const Layout = function ({ children }: IPageShellProps) {
   )
 }
 
-const Sidebar = function ({ children }: IPageShellProps) {
+const Sidebar = function ({ children }: IDefaultLayoutProps) {
   return (
     <div
       style={{
@@ -61,7 +59,7 @@ const Sidebar = function ({ children }: IPageShellProps) {
   )
 }
 
-const Content = function ({ children }: IPageShellProps) {
+const Content = function ({ children }: IDefaultLayoutProps) {
   return (
     <div
       id="page-content"
